@@ -17,6 +17,16 @@ config :portfolio, PortfolioWeb.Endpoint,
   pubsub_server: Portfolio.PubSub,
   live_view: [signing_salt: "VCKUY5E8"]
 
+# Tailwind config
+
+config :tailwind, version: "3.2.4", default: [
+  args: ~w(
+    --config=tailwind.config.js
+    --input=css/app.css
+    --output=../priv/static/assets/app.css
+  ),
+  cd: Path.expand("../assets", __DIR__)
+]
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.14.29",
